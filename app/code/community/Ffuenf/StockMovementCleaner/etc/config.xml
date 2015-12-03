@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ffuenf_StockMovementCleaner extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category   Ffuenf
+ *
+ * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
+ * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @license    http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <modules>
+        <Ffuenf_StockMovementCleaner>
+            <version>1.1.0</version>
+        </Ffuenf_StockMovementCleaner>
+    </modules>
+    <global>
+        <helpers>
+            <ffuenf_stockmovementcleaner>
+                <class>Ffuenf_StockMovementCleaner_Helper</class>
+            </ffuenf_stockmovementcleaner>
+        </helpers>
+        <blocks>
+            <ffuenf_stockmovementcleaner>
+                <class>Ffuenf_StockMovementCleaner_Block</class>
+            </ffuenf_stockmovementcleaner>
+        </blocks>
+        <models>
+            <ffuenf_stockmovementcleaner>
+                <class>Ffuenf_StockMovementCleaner_Model</class>
+            </ffuenf_stockmovementcleaner>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <stockmovementcleaner>
+                <schedule>
+                    <config_path>stockmovementcleaner/general/scheduler_cron_expr</config_path>
+                </schedule>
+                <run>
+                    <model>ffuenf_stockmovementcleaner/cleaner::clean</model>
+                </run>
+            </stockmovementcleaner>
+        </jobs>
+    </crontab>
+    <default>
+        <ffuenf_stockmovementcleaner>
+            <general>
+                <enable>1</enable>
+                <scheduler_cron_expr>30 4 * * *</scheduler_cron_expr>
+                <clean_movements_older_than>180</clean_movements_older_than>
+            </general>
+        </ffuenf_stockmovementcleaner>
+    </default>
+    <uninstall>
+        <filename>uninstall.txt</filename>
+    </uninstall>
+    <phpunit>
+        <suite>
+            <modules>
+                <Ffuenf_StockMovementCleaner/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>

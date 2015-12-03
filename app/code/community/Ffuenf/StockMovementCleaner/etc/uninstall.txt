@@ -1,0 +1,2 @@
+app/code/community/Ffuenf/StockMovementCleaner
+app/etc/modules/Ffuenf_StockMovementCleaner.xml

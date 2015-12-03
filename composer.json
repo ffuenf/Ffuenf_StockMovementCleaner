@@ -1,0 +1,29 @@
+{
+  "name": "Ffuenf/Ffuenf_StockMovementCleaner",
+  "license": "MIT",
+  "description": "This is a extension for Magento Community Edition that allows you to clean up the stock movements tables in a scheduler task.",
+  "authors": [
+    {
+      "name": "Achim Rosenhagen",
+      "email": "a.rosenhagen@ffuenf.de"
+    }
+  ],
+  "type": "magento-module",
+  "require": {
+    "Ffuenf/Ffuenf_Common": "*",
+    "Ffuenf/Ffuenf_MageTrashApp": "*"
+  },
+  "require-dev": {
+    "aoepeople/composer-installers": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ffuenf/Ffuenf_Common"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/ffuenf/Ffuenf_MageTrashApp"
+    }
+  ]
+}
