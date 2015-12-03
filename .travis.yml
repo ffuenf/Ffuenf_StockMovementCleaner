@@ -38,7 +38,7 @@ env:
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
   - MAGENTO_VERSION=magento-mirror-1.6.2.0
 script:
-- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/setup.sh
+- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/dev/setup.sh
   | bash
 before_deploy:
 - gem install mime-types -v 2.6.2
