@@ -37,9 +37,13 @@ env:
   - MAGENTO_VERSION=magento-mirror-1.8.1.0
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
   - MAGENTO_VERSION=magento-mirror-1.6.2.0
+before_script:
+- composer self-update
+- composer install --prefer-source
+- curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 script:
-- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/dev/setup.sh
-  | bash
+- php phpcs.phar --standard=./phpcs.xml --encoding=utf-8 --report-width=180 ./app
+- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/dev/setup.sh | bash
 before_deploy:
 - gem install mime-types -v 2.6.2
 deploy:
