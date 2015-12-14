@@ -40,9 +40,7 @@ env:
 before_script:
 - composer self-update
 - composer install --prefer-source
-- curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 script:
-- php phpcs.phar --standard=./phpcs.xml --encoding=utf-8 --report-width=180 ./app
 - curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/dev/setup.sh | bash
 before_deploy:
 - gem install mime-types -v 2.6.2
