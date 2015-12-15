@@ -24,7 +24,7 @@
             <codePool>community</codePool>
             <depends>
                 <Ffuenf_Common />
-                <Bubble_StockMovements />
+                <Ffuenf_StockMovements />
             </depends>
         </Ffuenf_StockMovementCleaner>
     </modules>

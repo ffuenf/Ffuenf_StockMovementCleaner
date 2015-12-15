@@ -18,7 +18,6 @@
 
 class Ffuenf_StockMovementCleaner_Helper_Data extends Ffuenf_Common_Helper_Core
 {
-
     /**
      * config paths.
      */
