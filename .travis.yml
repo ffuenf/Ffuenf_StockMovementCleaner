@@ -1,16 +1,15 @@
 language: php
 sudo: false
 php:
-- 5.3
 - 5.4
 - 5.5
 - 5.6
 - 7.0
 matrix:
+  fast_finish: true
   allow_failures:
   - env: MAGENTO_VERSION=magento-ce-1.9.1.1
   - env: MAGENTO_VERSION=magento-ce-1.9.1.0
-  - php: 5.3
   - php: 5.4
     env: MAGENTO_VERSION=magento-ce-1.9.2.2
   - php: 5.4
@@ -21,7 +20,6 @@ matrix:
     env: MAGENTO_VERSION=magento-mirror-1.8.1.0
   - php: 7.0
     env: MAGENTO_VERSION=magento-mirror-1.8.1.0
-  fast_finish: true
 env:
   global:
   - APPNAME=Ffuenf_StockMovementCleaner
@@ -29,10 +27,7 @@ env:
   - secure: Yp5+JjDaUJLgPkx9ityy4Uz5rl8kZCTMkJLKDp0jH7DVT0njaUKlSvt63BWAv+JXlX414p+EHD13u8fcknZh6BecC2wp9V8CRNPdR5wtMRHErtz3/3KTjSCBhuyULbuQW2UuAVL3VaHvTPae1KZDS8+ymjflBahKmXlfo5dE7d9SASqezuTxI4HiXBCmMpbN3sdXexXl8xboPs3kVZOr/m0CA81o8itmffC0GlTAom5WEdKt132FKf2JmVEwCwXvhGGuI4ljZuicGoFP0UDawHoOZDlXb0HC1OhqFm+Ny8GORmPF/DP87oBXPMWgAVvMNa6jgaN34CmEcjIBD8Uhz7/XI9MywHGdtu9maT5TPJ72RHIcspHTRd+wlLYKjKV/6rbZlfbCe2lguKRYaWacWDN7mOYJqaqfO/k81wZRUVt7XfrMjKDm1bNO/d3OHsH6gFbRdoEieHwZpfmwxNRWQ98exd0zcdNqBFV0GPRb4ZhEqU/TkYZQ3tuw3DBMlprsFweQS8UBSbolTcp8RAV2Fds0vUp76eP5ubBLHBHBG6Sqs5kNkwuqIBaXmR70jCUNM8hMPIrip8V1rYWBjR7z6pQk+kBrrADdNU8sAqzsQwLxJfBrXKIGzfAb8OiYvO9jcqWVt0cCVshO+9R5jP67TQwUzN2RqTsdLKHPL2RzHW8=
   matrix:
   - MAGENTO_VERSION=magento-ce-1.9.2.2
-  - MAGENTO_VERSION=magento-ce-1.9.2.1
-  - MAGENTO_VERSION=magento-ce-1.9.2.0
   - MAGENTO_VERSION=magento-ce-1.9.1.1
-  - MAGENTO_VERSION=magento-ce-1.9.1.0
   - MAGENTO_VERSION=magento-mirror-1.8.1.0
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
   - MAGENTO_VERSION=magento-mirror-1.6.2.0
