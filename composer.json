@@ -11,12 +11,21 @@
   "type": "magento-module",
   "require": {
     "Ffuenf/Ffuenf_Common": "*",
-    "Ffuenf/Ffuenf_MageTrashApp": "*"
+    "Ffuenf/Ffuenf_MageTrashApp": "*",
+    "Ffuenf/Ffuenf_StockMovements": "*"
   },
   "require-dev": {
     "aoepeople/composer-installers": "*"
   },
   "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.firegento.com"
+    },
+    {
+      "type": "composer",
+      "url": "https://packages.magento.com"
+    },
     {
       "type": "vcs",
       "url": "https://github.com/ffuenf/Ffuenf_Common"
@@ -24,6 +33,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/ffuenf/Ffuenf_MageTrashApp"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/ffuenf/Ffuenf_StockMovements"
     }
   ]
 }

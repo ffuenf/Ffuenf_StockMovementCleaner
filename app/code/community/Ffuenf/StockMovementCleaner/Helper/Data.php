@@ -12,13 +12,12 @@
  * @category   Ffuenf
  *
  * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
- * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @copyright  Copyright (c) 2016 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
 class Ffuenf_StockMovementCleaner_Helper_Data extends Ffuenf_Common_Helper_Core
 {
-
     /**
      * config paths.
      */

@@ -12,7 +12,7 @@
  * @category   Ffuenf
  *
  * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
- * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @copyright  Copyright (c) 2016 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
@@ -35,7 +35,10 @@ class Ffuenf_StockMovementCleaner_Test_Config_Setup extends EcomDev_PHPUnit_Test
      */
     public function testSetupExists() {
         $this->assertSchemeSetupScriptVersions(
-            '1.0.0', $this->expected('module')->getVersion(), null, 'ffuenf_stockmovementcleaner_setup'
+            '1.0.0',
+            $this->expected('module')->getVersion(),
+            null,
+            'ffuenf_stockmovementcleaner_setup'
         );
     }
 }

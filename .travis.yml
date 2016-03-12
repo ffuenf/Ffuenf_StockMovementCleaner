@@ -1,32 +1,52 @@
 language: php
 sudo: false
+cache:
+  apt: true
+  directories:
+  - "$HOME/.composer/cache"
+  - "$HOME/.cache/bin"
+  - "$HOME/.n98-magerun/modules"
+  - "$HOME/.cache/magento"
 php:
-- 5.3
-- 5.4
 - 5.5
 - 5.6
 - 7.0
 matrix:
+  fast_finish: true
   allow_failures:
-  - php: 5.3
-  - php: 5.4
   - php: 5.6
+    env: MAGENTO_VERSION=ce-1.8.1.0
   - php: 7.0
+    env: MAGENTO_VERSION=ce-1.8.1.0
 env:
-  matrix:
-  - MAGENTO_VERSION=magento-ce-1.9.2.2
-  - MAGENTO_VERSION=magento-ce-1.9.2.1
-  - MAGENTO_VERSION=magento-ce-1.9.2.0
-  - MAGENTO_VERSION=magento-mirror-1.8.1.0
-  - MAGENTO_VERSION=magento-mirror-1.7.0.2
-  - MAGENTO_VERSION=magento-mirror-1.6.2.0
   global:
-  - secure: ElXyxtSxkhh0LKXUybhB98geF0BAPCk80V7B/OMxAfliGf0HfL1E+QgNZURfE0hN5WLWOQw/CrtSAQ2S3G30xvMWlrWE0Zi2DpuIeeEQW9j/NOn6phaVG/WM5diPygpIEK5Yh4Eyn/rOjN84bmkwvsUQICgPXgD5cXbMpEqkOppsXY/FdVdsaR9HFWYNI7A+W6miv1mbqIkP8C1O6Pm/InlEakO2rJ7MQKSdd9LC8fGhrBnbX+TwCtXNz35zTwCz5HikP7KywVWtHA9eoH3OvPR2uqkZ19BHuvUt4v8d5JT8mKzYiWda7yAZrP+EPmJbNm9Lh+dIFYcrkoXjx74lO39se+XzMlfsS1RC7yX7WaC0GlfJex87ccO8OqBrUCfLO+8uZnx8RpLLnG5+TZ/7fEmm6/8N9cO/wecyUFdupwb22KPcH+f//tLVc1iGJEfzpHBtlu53U4nXFho2KsU4DDr3ODH+SOYEULqGLEhf4tyBKz4cwjWZfnfB5vU6iE8zZJ2hA29Ysu1TQQUjXZqvtDfIvRgBk/+1DNXiN3D1XArTbH34VbbAjSSJ+SFxZVurhsElcWuzjHKcRQvIdPf2fhIDGe6wV8LOMEHumfA8PGHkz5zc6jFAWM/VqdJIDDceUN/dDUMbsDVYcK/HemmjiTWk+fvNcacFqkGmpKTJOCs=
-  - secure: t7AkDOIcZiaq+PxCkSvkbQjcJv+qfazlpucq4LTo7AT8WA0WDc6gS0x6xDoOLz9urSf2UwdgRcHsW34W0VA3rr0rJy+nU4MCplYZaIwPQRamkbXOlwkpCI9uRFjcgN7EZJnMfES8SNtoeXVlHMcWLbGnSjX6kmHxS2euPm0P4a5kpVK3NbR3Q3F0WEAZhIduVzZicWm0Ild5YE8qE37wUTpXlkjkaCD1IVGFuYczMU//d1UCl3iZaNCAVxYvR1JZZb15UsllY7p2TCs/S8uosq1GyskaTlwD1FPEWUkt17hFNfk9J89Hv1y/G/AsPo8usREzHM5eR6W7h+yI2KdMdNsaSzpCpBPstUxSgSTdelwoF6r8ZmiYVqnyXMqtHqHGdoS15aQo/JBglPvlu9ktpJn1I/WpP0XoaYAX54/0gfuUYIMkSfiqX1dPi4rHoUJdJLWrhYlKpHMrl5TPvGOWgG2DmHu62Bx/OlE5NVoF7DcEkrke8/4ALBCc1HgZ7+K+XLTAaKWkdLd997YhuZUS6utTfEXJw1R+Cnoy00FnqHaJ2xtejYHBYRwmQZPRgtRvczvcySjzw3zxDE87IE2JzBsk7OEhTULIW7t9R+RmAx0WbtbpV4FxXRh733is/Gf0FssauX+rf6GEyfPtTujrhl/OL0LMd516YkOcFoQCSZY=
-  - secure: WRObqlKFcCTuYcsR+bRLSrpLh7x5x5vPZyMZFkOKT9QZJk/eTA87hd8lb+nN5AjM/unw9Mmj91+jhpnr2Q9FiJwagusCmQG0EB7Zk5iGLtqyji9WzRlPApeR1mk04tFLznVhCf/+21B203kwKpxvDhryYaaLKt6d6DMlKPogFFUSmVpM2YHryPIzvQ6+YI1MUKt1t4Z0EL6uWiCR4E3FAIJbvL6m/vJn8bx96kpgVxHa7Qrxu3cfUyDb8FPrzTwdKCrrv7V3JHhjSjv4zfEw4GXA0fKFSqIV9x99rSYJwXklPNE1+5Prn96PgSoni7aFf5Cp14rgU5hnCJLpN1pneVxikZhkCueUfFSCanXH7UgJIyDfv0f87WY47KhiRVBzdhDgC7S7zw2VR8SRAHJCoCibR2W89iFUhbHa61+5s0ZPW7ZooXblxyMtiON2pCe/IUWOZFxrbL+Tzc9xM+W0xkIFQpCKUNwwBELcQtpMxG1TMPZ8EGiqbV8sD/cEgzHKACUjHbieCNvo4kkIbbHn4pJzJnL5lJefGIgiRjWPdshTFQIMn8fI6MBrFD/SE/Yu7rUMoQFnItLx5jxqmeovdCd+nrfyvoJJjrWxYQN4orPpUI14PbcsI/uLGAjfsHTo0ujPljiK1yoRyhSUEOqp2T+K0D/DZBNNftqteApidCM=
-script:
-- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/setup.sh
+  - APPNAME=Ffuenf_StockMovementCleaner
+  - secure: iEiW8NJuAjkDX8ojUOVg2sFVOi0/yBCnF3fx3t/1KUUKJZAGNr0R8tmSZIHKG7e9RP9YiVOtqDxpEAmSYAhWVTGd5/fz5WuDHiN51jVljLR1R3VmxSByPVlMz7BmctY9FrEcmJ+jOGYj+xv+taDDzOA9XzJdvYnmTcLmQGZt6bSZ4kl6iY+YqPsX3BJcS9td3K/L0WcdJGWmmWotlPWUB4yDjEj0XGgW0JGfMGGNqYQS4m6WMJNOvlIFpuwqVc6aIpZh39RSi/VckfRIgRCs7zoR7fdXbrsXxhCkBRXJMGnotz+lRWI6U06JIH0jIfgTZ46iVCZ82TGkWy11d02ndCd7Y0U5SqBHULlfldXcEcPmxkLnSI3nAeUsQtKcYjltALlJnZAsU+n2pdoaNcyu8MYittwLHDER/HM3rt8AhQ50vGCZsGwQjKkItahYj3YI/g9vzC93wQ+F2VeeiLyeIni448qCRhnHbgPCpLQvo0pUq/C5m/HmYb/tqFVtOeQKo6MADHisL+sWZaZ1Xtk9UgRxfW0hz4o7ay7HnNOhbSXXfdHK2bEZyAk+lf7w7zQr7vjGC8UqwSOaIzgPtkye1LpHlBTmauBjE76s3rr2XrwVZj1ZfVLzgJCbOqjaZPkTMCLLwPfcXcmtz4eu0NQYeC4psKVRRj5l4ooHSYNl33w=
+  - secure: offXhhHxkkGaManacq1nJ83zioQa/VQ9HNRfnt1wlD5kuz4XKHaxr6Rs/wTVKmCqc/tcuF1iBBwRYScclx0Y1eiTQgE4YGLf9ni+5ChS1sxNaZ1gNBT9KLpiYXw6sta5nWB/IJJjOVwQ0o+YLSpSz3/dhymNyONlz0h4wHdDnHf6DCksALJuuw2r4cBbLY0onEdBUJwh/63gCXiDF8Za1p0YjwcLIvEi+16r6jcY2CvrKgXMiMUy+tZyg3UFs9W6GeIy0sFAo+ZZesMdPAzOiN5psUR1WdpEYOGzC/RXaTJ9uEeuMMvy4teMTLf/jRGI9+UUWETFemgrHEc1ytCl3qGnn1FnCvI6VyKcqu95AM75HQaFAXfR1c8JMKOMi7pAnQ43BmxK0ONmThBFxt65Hn7y8YsTi42UPXuyUQI2OptLSm0xqUKum5A7J98yuYZIbDd4Qz7QqC3GEkYvHL058am+OurQPBDnc4mHMTqN8Clzman0U6IqXdsCjhwmj0DrzN/TlUxt4PBtZ9as8pPOov+zppGVuT0Q5c7UfnHffXGkel8dYT6u8vM++7N7PHnO/STC3rGRICMXZjHGKTcPOOS/CpPHN8iW5ehMaCmvEI1/nfrXY9Ij+/3qGsDtH+rPCC/uMQH8S6soByuHDsJD6VvzGVM/ld8UGO3vtXK2h3E=
+  - secure: C20S4qe1Ex1OT2+SA7rmRyCTt+XaobMKzNLiSOlf6t55qRnWatURaOZvx9qHxiyoYiJ6PflRGzu9z+hHEuJ37Z54SntYryPUvB74X/dPVdDfIq+QCFsqWDVzU5RXM4tV9fYLshtd8IcmYNkAMsTe88tBPB2WLRIBWDti6wZaPf3tJnKB6hccwRyHERWwB5+P6/VaM2/F3Ljhgf5muS747dZ8WYqseq4+RVMKMMcIgENGIq/250FK+irB4W4cxY9MdCk8FRrsfLK7kbHYGAcvWjTdhE95oIIOUsi+sQEJKh46hbJsNkU0UxPp9mKKL3Q5FZMqpplLsmvQS+pnNk7KFD6/EYxDs/6mqOaouMMaSy3cptELEjGKwQH4SrIY1aRocKfL2EydCQk4Yh2bg3ZRdy+3laVoG1HKEMLRglxrhDQ0N490xasnQNwXnOrnzt8bNvPtPbzLloYVcJL3FV3EMqjuFHhcP47QqN/1KuDrh/MgY8Lb+SJJXTk0RnwJkO1P6b8sCHs0wg5yysfyIRkKbacUJnDh8flfRefBhFMZjTWugbsshm9X/aOfUwIUC547Lea327euf89YQuEBVWk1+kOYDnF+pVucRAGeSILw8I8PGeha+lO4sUdWtjmYTTro7gra1qLrv8bOfFA9qcTATYIVv0u26gt5X61Z598m81I=
+  matrix:
+  - MAGENTO_VERSION=ce-1.9.2.4
+  - MAGENTO_VERSION=ce-1.9.1.1
+  - MAGENTO_VERSION=ce-1.8.1.0
+  - MAGENTO_VERSION=ce-1.7.0.2
+  - MAGENTO_VERSION=ce-1.6.2.0
+before_install:
+- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/before_install.sh
   | bash
+script:
+- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/script.sh
+  | bash
+deploy:
+  provider: releases
+  file:
+  - "${APPNAME}-${TRAVIS_TAG}.zip"
+  - "${APPNAME}-${TRAVIS_TAG}.tar.gz"
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
+  api_key:
+    secure: v8KqgsXDRXp7Cu5BpiQEUzFpTrOnFOXKfE+/0nQmlgCbL+X+p96N2Id8M7+nqyEraaF+VZxokvP89jT1rSlU1Azp95sYW1+xbEkoU1iJMIIWFIRcEqtwOPFFyNyCIi7DHcl6//6g8koz8963o26nkUa6TUGRIl1o4fnpsT3o+l1fh7gf99RULWvus6LxSqKoInQJRguuw78gcjohGeG7qlC1ILOLTWnoIHuniIrd/hz/AotGyaNbEb1QMxGjySEh4obSbzh81DLGhqsxzZEy5f9Ut0iKeYj0/skbJHWNF/K4nDzyavHqyhzQsSHb9HGkjEt0K6iO24MY2yiU70uJxS9xaF9Vl0eSKmXenK8RDJmvoFG3rI07CF5uNouIc5yDbKT1syDoclmTwlN3cVxnVOWkaYdxo8iREh33TAn2LzS2f5pDj5AtjFya91evtMKNus/w8OyPdAW9pzFBvBnbFWCTAJB+hR4txbwTyzqv+NlrGfkmIzWNapkZtXuuzamoh2d9eIdOl1cnsUCoTCyNflQ9cSYGQjFKaKS6BTLW2fuhnYYn1wU9TiCqjJisY/07PlQsxuz0afAITGdiCAfrNkp6TJnQkDSlTKIwmQfdYyefrNOOkf6+auoAz3cy0TTBOnA/RRgxWwKol5n6jhwDVauTyCUM71+I519PrmuiaMY=
 notifications:
   slack:
-    secure: g2n/WQkXsFChLQpRqdBSF/Lh+Ib6FwYtuB2nsK6KsW+3eePiwy3poocHjRVe6UltwOhkRgXJ3Mr2ZmxwBVoWeuPe3aNvs+yPSNDrICgytnwNUS1ov00z2QuFsa8UMpQUunMLqaTWe316tWMNWuPvUexyeNb4yUGNPNH9yqjGL+wwci7thxqy8C+3lI3fnvdIalG9q/AxaxEQ+dLp7/UqYt7RmEVVm9oDTKNhjpK/+aA2qTb1mvx5IoRkR5cXQaOeKrqS2YqHMHGkfS6c8nTgN7fFEqwuvpBfqrXJhLxxEkWo/zwCFlKGhOCrB38kGrItNHuVih6e3SGMpsAUPdO3Lrx8atJT7v5TCZJUon/wl0X2AGedJAUd3Mv9agDKbM61NtGXRA9T9dbPBpRZmhyA7RBT9lh3K7WrpB8dLif+56+fX3Bb5ehGe7E2Ds5ROoY8O5zHKN/aphhrk0TP7rnimqR7TS6zawhJIAQyP+J4OTxiRvTogT81YYcsprIjwGetzul0KCSA+1ibF6SJOkqWxcZ9xXrlUGVWMgKaN0NPoD20vuFlzAGICWMVMAM79nYkUbSyjddn9BizyFtvokzIgsO1KTocD5FPpPmwjAm5dXhsYb8ujwFwoSrf07zvqEXb5hoT5Ygj/84AvdWIOtIiLMEGi4YA3znlFuMz6zTghYU=
+    secure: Cx55WlGfWy2pfw866ruTM+bVzJCBIENp+RTuY88d0oWol4NODusE+J3MNZsBg/wh6dRsass7ct3nDSHVPC0OBP/DMmSnPS2+QygXqKdsupY2rliXeOs5ke5LsTjCBBRdLU2dm3sTk/X3+MegR6CQRMXEjAe8u+IO6Ge4P9ykrQO18YnOY6AqR6YltUaltAdTx4fqxKfo5I7PizVl31HUcuNlrrWeJWBxNICBulO+ijdCNROSVYtGbCHRvMsBLWDiq/C6jkb9GcIiBvWY47f7if1e4NlHtmgZrK/d78ssPf5fdNa2o/B3HmSgbZyXUSoxkYDjwouZfTlsrq+GCd56aZrX2d6/8xVJqQVKSDgHhKtErL+RFgIXjzDfnS/LyBPbaK4EkQ5zTw5vNTujmYJxdH8zAVZ9CP6D7CgxJXdsQ+hdX+T31TuMu5xlGi2lpgIYwkGfyz24AFerDAljgotnrduegi1KTC7fdj92HhT5EW3J5ZkrNLb72qehmBV9q8OBdpnQ374b0EbK5DahFmyp5U2Ok4+9prPiiXeBbBphmA71GLgRY8F+VYZR5z1UIJ5o/mnGGvS9v1HWljkaNlgBEwVOYKtfyV9OPDj2UEGga8Fdj2z5MY/n7Cy8BrfMZLu4BfhNt+nv3b6FysNymQvtqr35odsoXC/1H6CPh9EWFec=
